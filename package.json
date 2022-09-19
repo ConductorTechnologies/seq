@@ -1,0 +1,36 @@
+{
+  "name": "@conductortech/seq",
+  "version": "1.0.0",
+  "description": "Manage sequences of ints as frame numbers.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "yarn babel src --out-dir dist",
+    "start": "yarn babel src --watch --out-dir dist",
+    "prepublish": "yarn build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConductorTechnologies/seq.git"
+  },
+  "keywords": [
+    "frames",
+    "vfx",
+    "sequence"
+  ],
+  "author": "Julian Mann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ConductorTechnologies/seq/issues"
+  },
+  "homepage": "https://github.com/ConductorTechnologies/seq#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "jest": "^29.0.3"
+  },
+  "dependencies": {
+    "babel-jest": "^29.0.3"
+  }
+}
