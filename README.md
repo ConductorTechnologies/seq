@@ -25,4 +25,3 @@ s.last();
 > 10
 ```
 
-Full documentation [here](./out/Sequence.html)
