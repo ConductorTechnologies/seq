@@ -25,3 +25,32 @@ s.last();
 > 10
 ```
 
+
+## Dev
+
+```
+git clone git@github.com:ConductorTechnologies/seq.git
+
+yarn
+```
+
+## Build
+
+Trasnpiles into `./dist/index.html`
+```
+yarn build
+```
+
+## Test
+
+Tests the code in `./dist/index.html` (not `./src/index.html`)
+```
+yarn test
+```
+
+## Generate Docs
+```
+yarn doc
+```
+
+Then open `./doc/index.html` in a browser.

@@ -1,14 +1,8 @@
 
 
-/** 
- * 
- * @author Julian Mann
- * 
-*/
-
-
 /**
- * Represents a sequence of integers to be used for frames of animation. Supports chunking.
+ * @classdesc Represents a sequence of integers to be used for frames of animation.
+ * 
  * @param  {...args} args
  * @returns Object containing public functions to manage a sequence of frame numbers.
  *
@@ -21,7 +15,6 @@
  * Sequence("1-10x2, 20-30x5") // 1-10x2, 20-30x5
  * Sequence([1, 2, 3, 4, 5]) // 1-5
  * Sequence(-10, -2) // -10--2
- * 
  */
  const Sequence = (...args) => {
     const PROGRESSION_SPEC_REGEX =
@@ -125,25 +118,21 @@
     _frames.push(..._flatten(...args));
   
     /**
-     * @function
      * @returns {Array} The frames in the sequence.
      */
     const frames = () => _frames;
   
     /**
-     * @function
      * @returns {number} The first frame in the sequence.
      */
     const first = () => _frames[0];
   
     /**
-     * @function
      * @returns {number} The last frame in the sequence.
      */
     const last = () => _frames.slice(-1)[0];
   
     /**
-     * @function
      * @returns {String} A compact representation of the sequence.
      * @example
      * Sequence(1, 10, 2).spec() // "1-10x2"
@@ -151,7 +140,6 @@
     const spec = () => _spec(_frames);
   
     /**
-     * @function
      * @returns {boolean} True if the sequence is an arithmetic progression.
      */
     const isProgression = (arr = _frames) => {
@@ -159,7 +147,6 @@
     };
   
     /**
-     * @function
      * @returns {number|undefined} The step size of the sequence if it is a progression, otherwise
      * undefined.
      */
@@ -171,14 +158,12 @@
         : undefined;
     
     /**
-     * @function
      * @returns {number} The number of frames in the sequence.
      */
     const length = () => _frames.length;
   
     /**
-     * Set the maximum size of chunks to be returned by the chunks() function.
-     * @function
+     * @function Set the maximum size of chunks to be returned by the chunks() function.
      * @param {number} value The value to set.
      */
     const setChunkSize = value => {
@@ -186,7 +171,6 @@
     };
   
     /**
-     * @function
      * @returns {number} The maximum size of chunks to be returned by the chunks() function.
      */
     const chunkSize = () => _chunkSize;
@@ -203,10 +187,8 @@
     const progressions = () => _progressions(_frames).map(p => Sequence(p));
   
     /**
-     * Return Sequences that represent chunks of the current sequence.
-     * @function
      * @param {boolean} enforceProgressions 
-     * @returns {Array<Sequence>} An array of Sequences.
+     * @returns {Array<Sequence>} Sequences that represent chunks of the current sequence.
      */
     const chunks = (enforceProgressions = true) => {
       const result = [];
@@ -241,8 +223,7 @@
     };
     
     /**
-     * Test if the sequence overlaps with another sequence.
-     * @function
+     * @function Test if the sequence overlaps with another sequence.
      * @param {Sequence} other
      * @return {boolean} True if the sequences overlap. 
      */
@@ -255,7 +236,6 @@
     };
     
     /**
-     * @function
      * @param {Sequence} other
      * @returns {Sequence} A new sequence that is the intersection of the two sequences.
      * @example
@@ -267,7 +247,6 @@
     };
 
     /**
-     * @function
      * @param {Sequence} other
      * @returns {Sequence} A new sequence that is the union of the two sequences.
      * @example
@@ -278,7 +257,6 @@
     };
 
     /**
-     * @function
      * @param {Sequence} other
      * @returns {Sequence} A new sequence that is the difference of the two sequences.
      * @example
@@ -290,7 +268,6 @@
     };
   
     /**
-     * @function
      * @returns {Sequence} A new sequence that is offset by the given amount.
      * @example
      * Sequence([1, 2, 10, 11]).offset(2) // Sequence([3, 4, 12, 13])
@@ -302,7 +279,6 @@
     };
     
     /**
-     * @function
      * @returns {Sequence} A new sequence whose elements are the elements of the current sequence
      * multiplied by the given value.
      * @example
@@ -315,7 +291,6 @@
     };
   
     /**
-     * @function
      * @returns {Sequence} A new sequence where all gaps have been filled.
      * @example
      * Sequence([1, 2, 10, 11]).fill() // Sequence([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
@@ -328,7 +303,6 @@
  
 
     /**
-     * @function
      * @returns {Array<Sequence>} An array of Sequences that represent the chunks of the other
        Sequence that overlap with the current Sequence. const intersectingChunks = other =>
        chunks().filter(c => c.intersects(other));
@@ -341,9 +315,7 @@
     const intersectingChunks = other => chunks().filter(c => c.intersects(other));
   
     /**
-     * A Sequence containing a sampling of frames from the current sequence.
-     * @function
-     * @returns {Sequence}
+     * @returns {Sequence} A Sequence containing a sampling of frames from the current sequence.
      * @param {number} count The number of frames to sample.
      */
     const subsample = count => {
